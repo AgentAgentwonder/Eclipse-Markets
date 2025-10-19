@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist_electron/
+.env
+*.log
+*.sqlite
+secure-config.json
+secure.keys.json

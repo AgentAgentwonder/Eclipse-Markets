@@ -1,0 +1,1 @@
+module.exports = { content: ['./src/**/*.{js,jsx,ts,tsx,html}'], theme:{ extend:{ colors:{ eclipse:{50:'#f7f6fb',100:'#efeaf7',200:'#ddd1ef',300:'#c7b6e5',400:'#a082db',500:'#7a4acf',600:'#6338b8',700:'#4b2a8f',800:'#321c66',900:'#0f0a2b'} }, boxShadow:{ 'eclipse-glow':'0 8px 30px rgba(122,74,207,0.25)' } } }, plugins:[] };

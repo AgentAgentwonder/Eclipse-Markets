@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{--bg:#0b0f1a;--accent:#5e3d9f;--glow:#7a4acf}
+body{margin:0;font-family:Inter,system-ui;background:radial-gradient(circle at 10% 10%,#321c66 0%,#0b0f1a 60%);color:#fff}
+.app-root{padding:24px}
+.container{display:grid;grid-template-columns:1fr 360px;gap:20px}
+.topbar{font-size:18px;margin-bottom:12px}
