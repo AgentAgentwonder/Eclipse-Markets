@@ -32,3 +32,4 @@ This scaffold includes the full feature set requested:
 - All secrets saved via the UI are encrypted with Electron `safeStorage`.
 "# Eclipse-Markets" 
 "# Eclipse-Markets" 
+"# Eclipse-Markets" 
