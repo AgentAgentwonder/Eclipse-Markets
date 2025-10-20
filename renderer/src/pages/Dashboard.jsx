@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import PortfolioCard from '../components/PortfolioCard';
 import MarketChart from '../components/MarketChart';
 import AlertsPanel from '../components/AlertsPanel';
 import LiveFeed from '../components/LiveFeed';
-import { motion } from 'framer-motion';
 
 function generateMockData() {
   const now = Date.now();
@@ -38,31 +38,65 @@ export default function Dashboard(){
   }, []);
 
   return (
-    <motion.div initial={{opacity:0}} animate={{opacity:1}} className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <div className="lg:col-span-2 space-y-6">
-        <PortfolioCard />
-        <div className="bg-eclipse-panel rounded-2xl p-4 shadow-eclipse-soft">
-          <h3 className="text-lg font-semibold mb-2">Market (mock)</h3>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <PortfolioCard />
+        </motion.div>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20 shadow-xl"
+        >
+          <h3 className="text-lg font-semibold mb-4">Market Overview (Live)</h3>
           <MarketChart data={marketData} />
-        </div>
-        <div className="bg-eclipse-panel rounded-2xl p-4 shadow-eclipse-soft">
-          <h3 className="text-lg font-semibold mb-2">Live Feed</h3>
+        </motion.div>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20 shadow-xl"
+        >
+          <h3 className="text-lg font-semibold mb-4">Live Feed</h3>
           <LiveFeed items={nowFeed} />
-        </div>
+        </motion.div>
       </div>
+      
       <aside className="space-y-6">
-        <div className="bg-eclipse-panel rounded-2xl p-4 shadow-eclipse-soft">
-          <h3 className="text-lg font-semibold mb-2">Alerts</h3>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20 shadow-xl"
+        >
+          <h3 className="text-lg font-semibold mb-4">Alerts</h3>
           <AlertsPanel items={alerts} />
-        </div>
-        <div className="bg-eclipse-panel rounded-2xl p-4 shadow-eclipse-soft">
-          <h3 className="text-lg font-semibold mb-2">Quick Actions</h3>
-          <div className="space-y-2">
-            <button className="w-full py-2 rounded-lg bg-eclipse-accent hover:brightness-110">Rotate Keys</button>
-            <button className="w-full py-2 rounded-lg border border-eclipse-border">Run Diagnostics</button>
+        </motion.div>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20 shadow-xl"
+        >
+          <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
+          <div className="space-y-3">
+            <button className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 font-medium transition-all shadow-lg shadow-purple-500/30">
+              Rotate Keys
+            </button>
+            <button className="w-full py-3 rounded-xl border-2 border-purple-500/30 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all">
+              Run Diagnostics
+            </button>
           </div>
-        </div>
+        </motion.div>
       </aside>
-    </motion.div>
+    </div>
   );
 }
